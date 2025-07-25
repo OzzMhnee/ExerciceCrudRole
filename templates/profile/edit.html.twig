@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon profil{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <h1 class="card-title mb-4 text-center">Modifier mon profil</h1>
+            {{ form_start(profileForm) }}
+                <div class="mb-3">
+                    {{ form_label(profileForm.nom) }}
+                    {{ form_widget(profileForm.nom, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(profileForm.nom) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(profileForm.prenom) }}
+                    {{ form_widget(profileForm.prenom, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(profileForm.prenom) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(profileForm.email) }}
+                    {{ form_widget(profileForm.email, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(profileForm.email) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(profileForm.plainPassword) }}
+                    {{ form_widget(profileForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(profileForm.plainPassword) }}
+                    <div class="form-text">Laissez vide pour ne pas changer le mot de passe.</div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_profile') }}" class="btn btn-secondary">Retour</a>
+                    <button class="btn btn-primary">Enregistrer</button>
+                </div>
+            {{ form_end(profileForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

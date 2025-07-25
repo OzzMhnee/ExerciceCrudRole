@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-body text-center">
+            <h1 class="card-title mb-4">Mon profil</h1>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>Nom :</strong> {{ user.nom }}</li>
+                <li class="list-group-item"><strong>Prénom :</strong> {{ user.prenom }}</li>
+                <li class="list-group-item"><strong>Email :</strong> {{ user.email }}</li>
+            </ul>
+            <a href="{{ path('app_profile_edit') }}" class="btn btn-primary mb-2">Modifier mon profil</a>
+            <form method="post" action="{{ path('app_profile_delete') }}" onsubmit="return confirm('Voulez-vous vraiment supprimer votre compte ?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete-profile') }}">
+                <button class="btn btn-danger">Supprimer mon compte</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
