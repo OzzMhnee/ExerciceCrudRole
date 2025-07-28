@@ -57,7 +57,7 @@ class ProfileController extends AbstractController
             $em->remove($user);
             $em->flush();
             $this->addFlash('success', 'Compte supprimé.');
-            return $this->redirectToRoute('app_home_page');
+            return $this->redirectToRoute('app_dash_bord_admin');
         }
         return $this->redirectToRoute('app_profile');
     }
